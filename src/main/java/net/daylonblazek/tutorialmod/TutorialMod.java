@@ -1,6 +1,12 @@
 package net.daylonblazek.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.daylonblazek.tutorialmod.block.ModBlocks;
+import net.daylonblazek.tutorialmod.entity.ModEntities;
+import net.daylonblazek.tutorialmod.entity.client.UtahraptorRenderer;
+import net.daylonblazek.tutorialmod.item.ModCreativeModeTabs;
+import net.daylonblazek.tutorialmod.item.Moditems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,17 +27,24 @@ import org.slf4j.Logger;
 public class TutorialMod
 {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "weirdmobmod";
+    public static final String MOD_ID = "backfromextinction";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     public TutorialMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModeTabs.register(modEventBus);
+
+        Moditems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+
+        ModEntities.register(modEventBus);
 
     }
 
@@ -41,8 +54,11 @@ public class TutorialMod
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(Moditems.AMBER);
+            event.accept(Moditems.VELOCIRAPTOR_EGG);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -57,8 +73,8 @@ public class TutorialMod
     public static class ClientModEvents
     {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.UTAHRAPTOR.get(), UtahraptorRenderer::new);
 
         }
     }

@@ -1,0 +1,10 @@
+{
+  "item.backfromextinction.amber": "Amber",
+  "item.backfromextinction.velociraptor_egg": "Velociraptor Egg",
+
+  "block.backfromextinction.amber_block": "Block of Amber",
+  "block.backfromextinction.amber_ore": "Amber Ore",
+
+  "creativetab.tutorial_tab" : "BackFromExtinction"
+
+}
