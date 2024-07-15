@@ -7,7 +7,7 @@ import net.minecraft.client.animation.KeyframeAnimations;
 
 public class ModAnimationDefinitions {
 
-    public static final AnimationDefinition ATTACK = AnimationDefinition.Builder.withLength(1.25f)
+    public static final AnimationDefinition UTAHRAPTOR_ATTACK = AnimationDefinition.Builder.withLength(1.25f)
             .addAnimation("head",
                     new AnimationChannel(AnimationChannel.Targets.POSITION,
                             new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),
@@ -102,7 +102,7 @@ public class ModAnimationDefinitions {
                                     AnimationChannel.Interpolations.LINEAR),
                             new Keyframe(1.25f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
-    public static final AnimationDefinition DEATH = AnimationDefinition.Builder.withLength(1f)
+    public static final AnimationDefinition UTAHRAPTOR_DEATH = AnimationDefinition.Builder.withLength(1f)
             .addAnimation("Raptor",
                     new AnimationChannel(AnimationChannel.Targets.POSITION,
                             new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),
@@ -121,7 +121,7 @@ public class ModAnimationDefinitions {
                                     AnimationChannel.Interpolations.LINEAR),
                             new Keyframe(0.5f, KeyframeAnimations.degreeVec(0f, 0f, -90f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
-    public static final AnimationDefinition WALK = AnimationDefinition.Builder.withLength(1.5f).looping()
+    public static final AnimationDefinition UTAHRAPTOR_WALK = AnimationDefinition.Builder.withLength(1.5f).looping()
             .addAnimation("head",
                     new AnimationChannel(AnimationChannel.Targets.POSITION,
                             new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),
@@ -262,7 +262,7 @@ public class ModAnimationDefinitions {
                                     AnimationChannel.Interpolations.LINEAR),
                             new Keyframe(1.5f, KeyframeAnimations.degreeVec(0f, -10f, 0f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
-    public static final AnimationDefinition IDLE = AnimationDefinition.Builder.withLength(2f).looping()
+    public static final AnimationDefinition UTAHRAPTOR_IDLE = AnimationDefinition.Builder.withLength(2f).looping()
             .addAnimation("head",
                     new AnimationChannel(AnimationChannel.Targets.POSITION,
                             new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),

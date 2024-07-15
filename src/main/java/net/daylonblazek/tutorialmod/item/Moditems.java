@@ -15,7 +15,9 @@ public class Moditems {
 
     public static final RegistryObject<Item> AMBER = ITEMS.register("amber",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> VELOCIRAPTOR_EGG = ITEMS.register("velociraptor_egg",
+    public static final RegistryObject<Item> UTAHRAPTOR_EGG = ITEMS.register("utahraptor_egg",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SYRINGE_WITH_UTAHRAPTOR_DNA = ITEMS.register("syringe_with_utahraptor_dna",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
@@ -23,7 +25,7 @@ public class Moditems {
     }
 
     public static final RegistryObject<Item> UTAHRAPTOR_SPAWN_EGG = ITEMS.register("utahraptor_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.UTAHRAPTOR, 0x7e9680, 0xc5d1c5,
+            () -> new ForgeSpawnEggItem(ModEntities.UTAHRAPTOR,0x313131 , 0x757575,
                     new Item.Properties()));
 
 }

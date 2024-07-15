@@ -145,9 +145,9 @@ public class UtahraptorModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(ModAnimationDefinitions.WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((UtahraptorEntity) entity).idleAnimationState, ModAnimationDefinitions.IDLE, ageInTicks, 1f);
-		this.animate(((UtahraptorEntity) entity).attackAnimationState, ModAnimationDefinitions.ATTACK, ageInTicks, 1f);
+		this.animateWalk(ModAnimationDefinitions.UTAHRAPTOR_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((UtahraptorEntity) entity).idleAnimationState, ModAnimationDefinitions.UTAHRAPTOR_IDLE, ageInTicks, 1f);
+		this.animate(((UtahraptorEntity) entity).attackAnimationState, ModAnimationDefinitions.UTAHRAPTOR_ATTACK, ageInTicks, 1f);
 
 
 	}
