@@ -9,11 +9,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class DNAExtractorScreen extends AbstractContainerScreen<DNAExtractorMenu> {
+public class IncubatorScreen extends AbstractContainerScreen<IncubatorMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(TutorialMod.MOD_ID, "textures/gui/dna_extractor_gui.png");
+            new ResourceLocation(TutorialMod.MOD_ID, "textures/gui/incubator_gui.png");
 
-    public DNAExtractorScreen(DNAExtractorMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public IncubatorScreen(IncubatorMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
 
     }

@@ -2,14 +2,13 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "backfromextinction:block/dna_extractor_textures",
-		"particle": "backfromextinction:block/dna_extractor_textures"
+		"0": "backfromextinction:block/incubator_texture",
+		"particle": "backfromextinction:block/incubator_texture"
 	},
 	"elements": [
 		{
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [15, 0, 1]},
 			"faces": {
 				"north": {"uv": [4, 4, 8, 8], "texture": "#0"},
 				"east": {"uv": [0, 4, 4, 8], "texture": "#0"},
@@ -20,15 +19,11 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [-50, 0, 0]
-		}
-	},
+	"display": {},
 	"groups": [
 		{
-			"name": "dnaextractor",
-			"origin": [8, 0, 8],
+			"name": "incubator",
+			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [0]
 		}

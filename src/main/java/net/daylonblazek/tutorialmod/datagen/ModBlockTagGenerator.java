@@ -22,12 +22,16 @@ public class ModBlockTagGenerator  extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.AMBER_BLOCK.get())
-                .add(ModBlocks.AMBER_ORE.get());
+                .add(ModBlocks.AMBER_ORE.get())
+                .add(ModBlocks.DNA_EXTRACTOR.get())
+                .add(ModBlocks.INCUBATOR.get());
 
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.AMBER_BLOCK.get(),
-                        ModBlocks.AMBER_ORE.get());
+                        ModBlocks.AMBER_ORE.get(),
+                        ModBlocks.DNA_EXTRACTOR.get(),
+                        ModBlocks.INCUBATOR.get());
 
 
 

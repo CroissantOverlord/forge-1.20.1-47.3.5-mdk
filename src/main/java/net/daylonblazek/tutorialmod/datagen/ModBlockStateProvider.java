@@ -23,6 +23,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(ModBlocks.DNA_EXTRACTOR.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/dna_extractor")));
 
+        simpleBlockWithItem(ModBlocks.INCUBATOR.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/incubator")));
+
 
     }
 

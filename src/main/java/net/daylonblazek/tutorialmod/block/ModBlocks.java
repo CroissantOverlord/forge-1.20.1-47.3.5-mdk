@@ -2,6 +2,7 @@ package net.daylonblazek.tutorialmod.block;
 
 import net.daylonblazek.tutorialmod.TutorialMod;
 import net.daylonblazek.tutorialmod.block.custom.DNAExtractorBlock;
+import net.daylonblazek.tutorialmod.block.custom.IncubatorBlock;
 import net.daylonblazek.tutorialmod.item.Moditems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -31,8 +32,15 @@ public class ModBlocks {
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
 
+
+
+
+
     public static final RegistryObject<Block> DNA_EXTRACTOR = registerBlock("dna_extractor",
             () -> new DNAExtractorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+    public static final RegistryObject<Block> INCUBATOR = registerBlock("incubator",
+            () -> new IncubatorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
 
 

@@ -28,6 +28,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.AMBER_BLOCK.get());
         this.dropSelf(ModBlocks.DNA_EXTRACTOR.get());
+        this.dropSelf(ModBlocks.INCUBATOR.get());
 
         this.add(ModBlocks.AMBER_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.AMBER_ORE.get(), Moditems.AMBER.get()));

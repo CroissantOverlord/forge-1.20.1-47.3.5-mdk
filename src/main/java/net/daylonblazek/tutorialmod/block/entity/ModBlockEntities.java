@@ -18,6 +18,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(DNAExtractorBlockEntity::new,
                             ModBlocks.DNA_EXTRACTOR.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<IncubatorBlockEntity>> INCUBATOR_BE =
+            BLOCK_ENTITIES.register("incubator_be", () ->
+                    BlockEntityType.Builder.of(IncubatorBlockEntity::new,
+                            ModBlocks.INCUBATOR.get()).build(null));
+
     public static void  register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

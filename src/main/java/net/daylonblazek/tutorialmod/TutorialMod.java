@@ -7,11 +7,15 @@ import net.daylonblazek.tutorialmod.entity.ModEntities;
 import net.daylonblazek.tutorialmod.entity.client.UtahraptorRenderer;
 import net.daylonblazek.tutorialmod.item.ModCreativeModeTabs;
 import net.daylonblazek.tutorialmod.item.Moditems;
+import net.daylonblazek.tutorialmod.recipe.ModRecipes;
 import net.daylonblazek.tutorialmod.screen.DNAExtractorScreen;
+import net.daylonblazek.tutorialmod.screen.IncubatorScreen;
 import net.daylonblazek.tutorialmod.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MinecartItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -53,6 +57,9 @@ public class TutorialMod
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
 
+
+        ModRecipes.register(modEventBus);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -64,8 +71,10 @@ public class TutorialMod
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(Moditems.AMBER);
+            event.accept(Moditems.AMBER_WITH_MOSQUITO);
             event.accept(Moditems.UTAHRAPTOR_EGG);
             event.accept(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA);
+            event.accept(Moditems.EMPTY_SYRINGE);
         }
     }
 
@@ -85,6 +94,7 @@ public class TutorialMod
             EntityRenderers.register(ModEntities.UTAHRAPTOR.get(), UtahraptorRenderer::new);
 
             MenuScreens.register(ModMenuTypes.DNA_EXTRACTOR_MENU.get(), DNAExtractorScreen::new);
+            MenuScreens.register(ModMenuTypes.Incubator_MENU.get(), IncubatorScreen::new);
 
         }
     }

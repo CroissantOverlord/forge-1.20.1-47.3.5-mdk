@@ -2,7 +2,9 @@ package net.daylonblazek.tutorialmod.block.entity;
 
 import net.daylonblazek.tutorialmod.item.Moditems;
 import net.daylonblazek.tutorialmod.recipe.DNAExtractorRecipe;
+import net.daylonblazek.tutorialmod.recipe.IncubatorRecipe;
 import net.daylonblazek.tutorialmod.screen.DNAExtractorMenu;
+import net.daylonblazek.tutorialmod.screen.IncubatorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -18,7 +20,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider {
+public class IncubatorBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(2);
 
     private static final int INPUT_SLOT = 0;
@@ -40,17 +41,17 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 200;
+    private int maxProgress = 1000;
 
 
-    public DNAExtractorBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.DNA_EXTRACTOR_BE.get(), pPos, pBlockState);
+    public IncubatorBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(ModBlockEntities.INCUBATOR_BE.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
                 return switch (pIndex) {
-                    case 0 -> DNAExtractorBlockEntity.this.progress;
-                    case 1 -> DNAExtractorBlockEntity.this.maxProgress;
+                    case 0 -> IncubatorBlockEntity.this.progress;
+                    case 1 -> IncubatorBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -58,8 +59,8 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
             @Override
             public void set(int pIndex, int pValue) {
                 switch (pIndex) {
-                    case 0 -> DNAExtractorBlockEntity.this.progress = pValue;
-                    case 1 -> DNAExtractorBlockEntity.this.maxProgress = pValue;
+                    case 0 -> IncubatorBlockEntity.this.progress = pValue;
+                    case 1 -> IncubatorBlockEntity.this.maxProgress = pValue;
                 }
 
             }
@@ -102,19 +103,19 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
     }
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.backfromextinction.dna_extractor");
+        return Component.translatable("block.backfromextinction.incubator");
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new DNAExtractorMenu(pContainerId, pPlayerInventory, this, this.data);
+        return new IncubatorMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.putInt("dna_extractor.progress", progress);
+        pTag.putInt("incubator.progress", progress);
 
 
         super.saveAdditional(pTag);
@@ -124,7 +125,7 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("dna_extractor.progress");
+        progress = pTag.getInt("incubator.progress");
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -148,7 +149,7 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private void craftItem() {
-        Optional<DNAExtractorRecipe> recipe = getCurrentRecipe();
+        Optional<IncubatorRecipe> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().getResultItem(null);
 
 
@@ -159,7 +160,7 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private boolean hasRecipe() {
-        Optional<DNAExtractorRecipe> recipe = getCurrentRecipe();
+        Optional<IncubatorRecipe> recipe = getCurrentRecipe();
 
         if(recipe.isEmpty()) {
             return false;
@@ -170,13 +171,13 @@ public class DNAExtractorBlockEntity extends BlockEntity implements MenuProvider
         return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
     }
 
-    private Optional<DNAExtractorRecipe> getCurrentRecipe() {
+    private Optional<IncubatorRecipe> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, this.itemHandler.getStackInSlot(i));
         }
 
-        return this.level.getRecipeManager().getRecipeFor(DNAExtractorRecipe.Type.INSTANCE, inventory, level);
+        return this.level.getRecipeManager().getRecipeFor(IncubatorRecipe.Type.INSTANCE, inventory, level);
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {

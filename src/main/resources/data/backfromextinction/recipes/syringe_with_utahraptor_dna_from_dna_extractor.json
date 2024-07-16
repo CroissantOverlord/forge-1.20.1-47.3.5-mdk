@@ -1,0 +1,12 @@
+{
+  "type": "backfromextinction:dna_extractor",
+  "ingredients": [
+    {
+      "item": "backfromextinction:amber"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "backfromextinction:syringe_with_utahraptor_dna"
+  }
+}

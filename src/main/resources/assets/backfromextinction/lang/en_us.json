@@ -1,12 +1,15 @@
 {
   "item.backfromextinction.amber": "Amber",
+  "item.backfromextinction.amber_with_mosquito": "Amber With Mosquito",
   "item.backfromextinction.utahraptor_spawn_egg": "Utahraptor Spawn Egg",
   "item.backfromextinction.utahraptor_egg": "Utahraptor Egg",
   "item.backfromextinction.syringe_with_utahraptor_dna": "Syringe With Utahraptor DNA",
+  "item.backfromextinction.empty_syringe": "Empty Syringe",
 
   "block.backfromextinction.amber_block": "Block of Amber",
   "block.backfromextinction.amber_ore": "Amber Ore",
   "block.backfromextinction.dna_extractor": "DNA Extractor",
+  "block.backfromextinction.incubator": "Incubator",
 
   "creativetab.tutorial_tab" : "Back From Extinction"
 

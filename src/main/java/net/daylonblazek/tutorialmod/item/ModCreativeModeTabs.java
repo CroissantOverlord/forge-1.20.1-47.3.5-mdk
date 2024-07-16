@@ -21,13 +21,16 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.tutorial_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(Moditems.AMBER.get());
+                        pOutput.accept(Moditems.AMBER_WITH_MOSQUITO.get());
                         pOutput.accept(Moditems.UTAHRAPTOR_EGG.get());
                         pOutput.accept(Moditems.UTAHRAPTOR_SPAWN_EGG.get());
                         pOutput.accept(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA.get());
+                        pOutput.accept(Moditems.EMPTY_SYRINGE.get());
 
                         pOutput.accept(ModBlocks.AMBER_BLOCK.get());
                         pOutput.accept(ModBlocks.AMBER_ORE.get());
                         pOutput.accept(ModBlocks.DNA_EXTRACTOR.get());
+                        pOutput.accept(ModBlocks.INCUBATOR.get());
 
                     })
                     .build());

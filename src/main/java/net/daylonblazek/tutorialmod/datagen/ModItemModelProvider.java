@@ -5,6 +5,7 @@ import net.daylonblazek.tutorialmod.item.Moditems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MinecartItem;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -18,8 +19,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(Moditems.AMBER);
+        simpleItem(Moditems.AMBER_WITH_MOSQUITO);
         simpleItem(Moditems.UTAHRAPTOR_EGG);
         simpleItem(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA);
+        simpleItem(Moditems.EMPTY_SYRINGE);
 
         withExistingParent(Moditems.UTAHRAPTOR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 

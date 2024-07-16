@@ -15,10 +15,17 @@ public class Moditems {
 
     public static final RegistryObject<Item> AMBER = ITEMS.register("amber",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> AMBER_WITH_MOSQUITO = ITEMS.register("amber_with_mosquito",
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> UTAHRAPTOR_EGG = ITEMS.register("utahraptor_egg",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SYRINGE_WITH_UTAHRAPTOR_DNA = ITEMS.register("syringe_with_utahraptor_dna",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> EMPTY_SYRINGE = ITEMS.register("empty_syringe",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
