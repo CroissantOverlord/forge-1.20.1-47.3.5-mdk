@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -31,17 +32,28 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.INCUBATOR.get());
 
         this.add(ModBlocks.AMBER_ORE.get(),
-                block -> createCopperLikeOreDrops(ModBlocks.AMBER_ORE.get(), Moditems.AMBER.get()));
+                block -> createCopperLikeOreDrops(ModBlocks.AMBER_ORE.get(), Moditems.AMBER.get(), Moditems.AMBER_WITH_MOSQUITO.get()));
     }
 
 
 
-    protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {
+    protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item amberItem, Item amberWithMosquitoItem) {
         return createSilkTouchDispatchTable(pBlock,
-                this.applyExplosionDecay(pBlock,
-                        LootItem.lootTableItem(item)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 1.0F)))
-                                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+                LootItem.lootTableItem(amberItem)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 1.0F)))
+                        .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)),
+                LootItem.lootTableItem(amberWithMosquitoItem)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                        .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))
+        );
+    }
+
+    protected LootTable.Builder createSilkTouchDispatchTable(Block pBlock, LootItem.Builder<?>... builders) {
+        LootTable.Builder builder = LootTable.lootTable();
+        for (LootItem.Builder<?> lootItemBuilder : builders) {
+            builder.withPool(LootPool.lootPool().add(lootItemBuilder));
+        }
+        return builder;
     }
 
 
@@ -50,3 +62,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }
+
+
+
+
+
+
+

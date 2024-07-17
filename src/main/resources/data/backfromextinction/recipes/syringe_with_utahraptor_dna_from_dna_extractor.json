@@ -2,7 +2,7 @@
   "type": "backfromextinction:dna_extractor",
   "ingredients": [
     {
-      "item": "backfromextinction:amber"
+      "item": "backfromextinction:amber_with_mosquito"
     }
   ],
   "output": {
