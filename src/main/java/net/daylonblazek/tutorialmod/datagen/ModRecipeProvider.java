@@ -66,9 +66,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Moditems.EMPTY_SYRINGE.get())
-                .pattern("S  ")
-                .pattern(" A ")
                 .pattern("  A")
+                .pattern(" A ")
+                .pattern("S  ")
                 .define('A', Blocks.GLASS)
                 .define('S', Items.IRON_INGOT)
                 .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
