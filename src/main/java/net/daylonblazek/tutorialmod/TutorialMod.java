@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.daylonblazek.tutorialmod.block.ModBlocks;
 import net.daylonblazek.tutorialmod.block.entity.ModBlockEntities;
 import net.daylonblazek.tutorialmod.entity.ModEntities;
+import net.daylonblazek.tutorialmod.entity.client.StegosaurusRenderer;
 import net.daylonblazek.tutorialmod.entity.client.UtahraptorRenderer;
 import net.daylonblazek.tutorialmod.item.ModCreativeModeTabs;
 import net.daylonblazek.tutorialmod.item.Moditems;
@@ -74,6 +75,7 @@ public class TutorialMod
             event.accept(Moditems.AMBER_WITH_MOSQUITO);
             event.accept(Moditems.UTAHRAPTOR_EGG);
             event.accept(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA);
+            event.accept(Moditems.SYRINGE_WITH_STEGOSAURUS_DNA);
             event.accept(Moditems.EMPTY_SYRINGE);
         }
     }
@@ -92,6 +94,7 @@ public class TutorialMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.UTAHRAPTOR.get(), UtahraptorRenderer::new);
+            EntityRenderers.register(ModEntities.STEGOSAURUS.get(), StegosaurusRenderer::new);
 
             MenuScreens.register(ModMenuTypes.DNA_EXTRACTOR_MENU.get(), DNAExtractorScreen::new);
             MenuScreens.register(ModMenuTypes.Incubator_MENU.get(), IncubatorScreen::new);

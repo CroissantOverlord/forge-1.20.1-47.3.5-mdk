@@ -24,7 +24,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Moditems.AMBER_WITH_MOSQUITO.get());
                         pOutput.accept(Moditems.UTAHRAPTOR_EGG.get());
                         pOutput.accept(Moditems.UTAHRAPTOR_SPAWN_EGG.get());
+                        pOutput.accept(Moditems.STEGOSAURUS_SPAWN_EGG.get());
                         pOutput.accept(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA.get());
+                        pOutput.accept(Moditems.SYRINGE_WITH_STEGOSAURUS_DNA.get());
                         pOutput.accept(Moditems.EMPTY_SYRINGE.get());
 
                         pOutput.accept(ModBlocks.AMBER_BLOCK.get());

@@ -8,4 +8,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation UTAHRAPTOR_LAYER = new ModelLayerLocation(
             new ResourceLocation(TutorialMod.MOD_ID, "utahraptor_layer"), "main");
 
+    public static final ModelLayerLocation STEGOSAURUS_LAYER = new ModelLayerLocation(
+            new ResourceLocation(TutorialMod.MOD_ID, "stegosaurus_layer"), "main");
+
 }

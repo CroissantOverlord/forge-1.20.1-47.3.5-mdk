@@ -2,8 +2,10 @@
   "item.backfromextinction.amber": "Amber",
   "item.backfromextinction.amber_with_mosquito": "Amber With Mosquito",
   "item.backfromextinction.utahraptor_spawn_egg": "Utahraptor Spawn Egg",
+  "item.backfromextinction.stegosaurus_spawn_egg": "Stegosaurus Spawn Egg",
   "item.backfromextinction.utahraptor_egg": "Utahraptor Egg",
   "item.backfromextinction.syringe_with_utahraptor_dna": "Syringe With Utahraptor DNA",
+  "item.backfromextinction.syringe_with_stegosaurus_dna": "Syringe With Stegosaurus DNA",
   "item.backfromextinction.empty_syringe": "Empty Syringe",
 
   "block.backfromextinction.amber_block": "Block of Amber",

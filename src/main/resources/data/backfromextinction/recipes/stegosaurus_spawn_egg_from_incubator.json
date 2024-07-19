@@ -1,0 +1,12 @@
+{
+  "type": "backfromextinction:incubator",
+  "ingredients": [
+    {
+      "item": "backfromextinction:syringe_with_stegosaurus_dna"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "backfromextinction:stegosaurus_spawn_egg"
+  }
+}

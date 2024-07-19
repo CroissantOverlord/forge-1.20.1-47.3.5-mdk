@@ -22,9 +22,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(Moditems.AMBER_WITH_MOSQUITO);
         simpleItem(Moditems.UTAHRAPTOR_EGG);
         simpleItem(Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA);
+        simpleItem(Moditems.SYRINGE_WITH_STEGOSAURUS_DNA);
         simpleItem(Moditems.EMPTY_SYRINGE);
 
         withExistingParent(Moditems.UTAHRAPTOR_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+        withExistingParent(Moditems.STEGOSAURUS_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
     }
 
