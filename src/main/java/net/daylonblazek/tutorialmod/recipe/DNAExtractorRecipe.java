@@ -3,16 +3,20 @@ package net.daylonblazek.tutorialmod.recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.daylonblazek.tutorialmod.TutorialMod;
+import net.daylonblazek.tutorialmod.item.Moditems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class DNAExtractorRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
@@ -43,11 +47,19 @@ public class DNAExtractorRecipe implements Recipe<SimpleContainer> {
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
     }
-
     @Override
     public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
-        return output.copy();
+        // Randomly determine which DNA syringe to return
+        Random random = new Random();
+        if (random.nextFloat() < 0.5) {
+            Item utahraptorDNAItem = Moditems.SYRINGE_WITH_UTAHRAPTOR_DNA.get();
+            return new ItemStack(utahraptorDNAItem);
+        } else {
+            Item stegosaurusDNAItem = Moditems.SYRINGE_WITH_STEGOSAURUS_DNA.get();
+            return new ItemStack(stegosaurusDNAItem);
+        }
     }
+
 
     @Override
     public ResourceLocation getId() {
@@ -114,5 +126,6 @@ public class DNAExtractorRecipe implements Recipe<SimpleContainer> {
             pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
 
         }
+
     }
 }

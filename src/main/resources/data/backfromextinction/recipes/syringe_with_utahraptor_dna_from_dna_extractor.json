@@ -8,5 +8,6 @@
   "output": {
     "item": "backfromextinction:syringe_with_utahraptor_dna",
     "count": 1
-  }
+  },
+  "priority": 1
 }
